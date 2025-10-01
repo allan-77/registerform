@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Register & Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, rgba(102,126,234,0.7), rgba(118,75,162,0.7)),
+                  url("ecomerce.jpg") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Top bar */
+    .top-bar {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+    .top-bar button {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-left: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .top-bar button:hover {
+      background: white;
+      color: #764ba2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    /* Form container with glass effect */
+    .form-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      padding: 40px 35px;
+      width: 380px;
+      color: white;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      animation: fadeIn 0.5s ease;
+      position: absolute;
+      transition: all 0.5s ease;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    label {
+      font-size: 14px;
+      margin-top: 12px;
+      display: block;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background: linear-gradient(135deg, #43cea2, #185a9d);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: 0.3s;
+    }
+    input[type="submit"]:hover {
+      background: linear-gradient(135deg, #185a9d, #43cea2);
+      transform: scale(1.03);
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .extra-options {
+      margin-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+    }
+    .extra-options a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .extra-options a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hide forms */
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+    }
+
+    /* Animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <button onclick="showForm('register')">Register</button>
+    <button onclick="showForm('login')">Login</button>
+  </div>
+
+  <!-- Register Form -->
+  <div class="form-container" id="registerForm">
+    <h2>Register</h2>
+    <form>
+      <label>First Name</label>
+      <input type="text" placeholder="e.g. Allan" required>
+      
+      <label>Last Name</label>
+      <input type="text" placeholder="e.g. Otieno" required>
+      
+      <label>Email</label>
+      <input type="email" placeholder="e.g. allan@gmail.com" required>
+      
+      <label>Phone</label>
+      <input type="tel" placeholder="e.g. +254712345678" required>
+      
+      <label>Address</label>
+      <input type="text" placeholder="e.g. Nairobi, Kenya" required>
+      
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
+      
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Re-enter password" required>
+      
+      <input type="submit" value="Register">
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div class="form-container hidden" id="loginForm">
+    <h2>Login</h2>
+    <form>
+      <label>Email</label>
+      <input type="email" placeholder="e.g. allan@gmail.com" required>
+      
+      <label>Password</label>
+      <input type="password" placeholder="Enter password" required>
+      
+      <div class="extra-options">
+        <label><input type="checkbox"> Remember Me</label>
+        <a href="#">Forgot Password?</a>
+      </div>
+      
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
+  <script>
+    function showForm(form) {
+      document.getElementById("registerForm").classList.add("hidden");
+      document.getElementById("loginForm").classList.add("hidden");
+
+      if (form === "register") {
+        document.getElementById("registerForm").classList.remove("hidden");
+      } else {
+        document.getElementById("loginForm").classList.remove("hidden");
+      }
+    }
+  </script>
+
+</body>
+</html>
